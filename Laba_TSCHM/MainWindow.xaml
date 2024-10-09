@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:Laba_TSCHM"
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="450" MinWidth="800" MaxHeight="1080" MaxWidth="1920">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="BrushPurple" Color="Purple"/>
+        <SolidColorBrush x:Key="BrushRed" Color="Red"/>
+
+        <Style x:Key="buttonDesicion" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="20"/>
+        </Style>
+    </Window.Resources>
+
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -44,11 +55,11 @@
         </Viewbox>
 
         <Viewbox Grid.Row="0" Grid.Column="2">
-            <Button x:Name="ButtonLogIn" Content="Авторизоваться" VerticalAlignment="Center" FontSize="15" Foreground="White" Background="Purple" BorderBrush="White" Height="40" Width="200"></Button>
+            <Button x:Name="ButtonLogIn" Content="Авторизоваться" VerticalAlignment="Center" Foreground="White" Style="{StaticResource buttonDesicion}" Background="{StaticResource BrushPurple}"  BorderBrush="White" Height="40" Width="200"></Button>
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="2">
-            <Button x:Name="ButtonPlay" Content="Воспроизвести"  VerticalAlignment="Center"  FontSize="15" Margin="3" Foreground="White" Background="Purple" BorderBrush="White" Height="32" Width="200"></Button>
+            <Button x:Name="ButtonPlay" Content="Воспроизвести"  VerticalAlignment="Center" Foreground="White" Style="{StaticResource buttonDesicion}" Background="{StaticResource BrushRed}"  BorderBrush="White" Height="32" Width="200"></Button>
         </Viewbox>
 
         <Viewbox Grid.Row="2" Grid.Column="2">
