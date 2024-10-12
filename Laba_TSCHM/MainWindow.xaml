@@ -55,17 +55,78 @@
         </Viewbox>
 
         <Viewbox Grid.Row="0" Grid.Column="2">
-            <Button x:Name="ButtonLogIn" Content="Авторизоваться" VerticalAlignment="Center" Foreground="White" Style="{StaticResource buttonDesicion}" Background="{StaticResource BrushPurple}"  BorderBrush="White" Height="40" Width="200"></Button>
+            <Button x:Name="cancelbutton" MinHeight="50" MinWidth="50" Grid.Row="3" Grid.Column="2" FontSize="18" Margin="20">
+                <Button.RenderTransform>
+                    <TranslateTransform/>
+                </Button.RenderTransform>
+
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)">
+                                    <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:0.50" Value="-5" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:1.50" Value="5" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:2" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimation Storyboard.TargetName="cancelbutton" 
+                    Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" 
+                    To="Green" 
+                    Duration="0:0:0.1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <StopStoryboard BeginStoryboardName="MouseEnter_BeginStoryboard"/>
+                    </EventTrigger>
+                </Button.Triggers>
+                
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                            <SoundPlayerAction Source="C:\Учеба\Laba_TSCHM\Resources\clickButton.mp3" />
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Button>
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.Column="2">
-            <Button x:Name="ButtonPlay" Content="Воспроизвести"  VerticalAlignment="Center" Foreground="White" Style="{StaticResource buttonDesicion}" Background="{StaticResource BrushRed}"  BorderBrush="White" Height="32" Width="200"></Button>
+            <Button x:Name="ButtonPlay" Content="Воспроизвести"  VerticalAlignment="Center" Foreground="White" Style="{StaticResource buttonDesicion}" Background="{StaticResource BrushPurple}" BorderBrush="White" Height="32" Width="200">
+                <Button.RenderTransform>
+                    <TranslateTransform/>
+                </Button.RenderTransform>
+                
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard  Name="MouseEnter_BeginStoryboard">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)">
+                                    <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:0.50" Value="-5" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:1.50" Value="5" />
+                                    <SplineDoubleKeyFrame KeyTime="0:0:2" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <ColorAnimation Storyboard.TargetName="ButtonPlay" 
+                                Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" 
+                                To="Green" 
+                                Duration="0:0:0.1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <StopStoryboard BeginStoryboardName="MouseEnter_BeginStoryboard"/>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
         </Viewbox>
-
         <Viewbox Grid.Row="2" Grid.Column="2">
-            <RadioButton x:Name="RadioButton" Content="Прослушивание" VerticalAlignment="Top"></RadioButton>
+            <MediaElement Source="C:\Users\vl-ta\Downloads\pixel_loading_bar.mp4" LoadedBehavior="Play" Margin="14,10,265,10" Grid.ColumnSpan="2"/>
         </Viewbox>
-        
     </Grid>
 </Window>
     
